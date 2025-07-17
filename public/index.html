@@ -3,11 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ma Plateforme</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <title>Login/Inscription</title>
 </head>
 <body>
-    <h1>Bienvenue sur ma Plateforme</h1>
-    <script src="/js/script.js"></script>
+    <div>
+        <div>
+            <button type="button" id="login-toggle" onclick="showLoginForm()">Login</button>
+            <button type="button" id="register-toggle" onclick="showRegisterForm()">Inscription</button>
+        </div>
+
+        <form id="login-form" onsubmit="event.preventDefault(); login();">
+            <input type="email" id="login-email" placeholder="Email" required>
+            <input type="password" id="login-password" placeholder="Mot de passe" required>
+            <button type="submit">Se connecter</button>
+        </form>
+
+        <form id="register-form" style="display: none;" onsubmit="event.preventDefault(); register();">
+            <input type="text" id="register-name" placeholder="Nom" required>
+            <input type="email" id="register-email" placeholder="Email" required>
+            <input type="password" id="register-password" placeholder="Mot de passe" required>
+            <select id="register-role" required>
+                <option value="" disabled selected>Rôle</option>
+                <option value="admin">Admin</option>
+                <option value="organisateur">Organisateur</option>
+                <option value="etudiant">Étudiant</option>
+            </select>
+            <button type="submit">S'inscrire</button>
+        </form>
+    </div>
+
+    <script>
+        function showLoginForm() {
+            document.getElementById('login-form').style.display = 'block';
+            document.getElementById('register-form').style.display = 'none';
+        }
+
+        function showRegisterForm() {
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('register-form').style.display = 'block';
+        }
+
+        async function login() {
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            const response = await fetch('/auth/connexion', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, mot_de_passe: password }),
+            });
+
+            const data = await response.json();
+            if (response.ok) {
+                alert('Connexion réussie!');
+                // Stocker le token ou rediriger l'utilisateur
+                localStorage.setItem('token', data.token);
+            } else {
+                alert('Erreur de connexion: ' + data.message);
+            }
+        }
+
+        async function register() {
+            const name = document.getElementById('register-name').value;
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+            const role = document.getElementById('register-role').value;
+
+            const response = await fetch('/auth/inscription', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ nom: name, email, mot_de_passe: password, role }),
+            });
+
+            const data = await response.json();
+            if (response.ok) {
+                alert('Inscription réussie!');
+                showLoginForm(); // Rediriger vers le formulaire de login après inscription
+            } else {
+                alert('Erreur d\'inscription: ' + (data.message || 'Erreur inconnue'));
+            }
+        }
+    </script>
 </body>
 </html>
+
+
