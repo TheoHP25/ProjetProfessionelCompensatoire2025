@@ -44,26 +44,30 @@
         }
 
         async function login() {
-            const email = document.getElementById('login-email').value;
-            const password = document.getElementById('login-password').value;
-
-            const response = await fetch('/auth/connexion', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email, mot_de_passe: password }),
-            });
-
-            const data = await response.json();
-            if (response.ok) {
-                alert('Connexion réussie!');
-                // Stocker le token ou rediriger l'utilisateur
-                localStorage.setItem('token', data.token);
-            } else {
-                alert('Erreur de connexion: ' + data.message);
-            }
+          const email = document.getElementById('login-email').value;
+          const password = document.getElementById('login-password').value;
+        
+          const response = await fetch('/auth/connexion', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email, mot_de_passe: password }),
+          });
+      
+          const data = await response.json();
+          if (response.ok) {
+            // Stocker le token dans le localStorage
+            localStorage.setItem('token', data.token);
+            // Rediriger vers la page d'accueil
+            window.location.href = '/accueil';
+          } else {
+            alert('Erreur de connexion: ' + data.message);
+          }
         }
+        
+
+
 
         async function register() {
             const name = document.getElementById('register-name').value;
