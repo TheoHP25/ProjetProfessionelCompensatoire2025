@@ -27,6 +27,15 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
+// Route pour la page d'administration
+app.get('/admin/dashboard', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/admin.html'));
+});
+
+// Importer les routes d'administration
+const adminRouter = require('./routes/admin');
+app.use('/admin', adminRouter);
+
 // Importer les routes d'authentification
 const authRouter = require('./routes/auth');
 app.use('/auth', authRouter);

@@ -6,7 +6,7 @@ const Log = sequelize.define('Log', {
     type: DataTypes.INTEGER,
     allowNull: true,
     references: {
-      model: 'Utilisateurs', // Assure-toi que ce nom correspond au modèle Sequelize pour la table utilisateurs
+      model: 'Utilisateurs',
       key: 'id'
     }
   },
@@ -19,8 +19,8 @@ const Log = sequelize.define('Log', {
     defaultValue: Sequelize.NOW
   }
 }, {
-  tableName: 'logs', // Spécifie le nom de la table existante
-  timestamps: false // Désactive les champs timestamps automatiques si tu ne les utilises pas
+  tableName: 'logs',
+  timestamps: false
 });
 
 module.exports = Log;
