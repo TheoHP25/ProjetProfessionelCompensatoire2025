@@ -1,17 +1,35 @@
-document.addEventListener('DOMContentLoaded', async function() {
-  // Charger et afficher les utilisateurs
-  await loadUsers();
-
-  // Charger et afficher les journaux
-  await loadLogs();
-});
-
-async function loadUsers() {
+// Fonction pour vérifier si le token est expiré
+function isTokenExpired(token) {
   try {
-    const response = await fetch('/admin/users');
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    return payload.exp * 1000 < Date.now();
+  } catch (error) {
+    console.error('Erreur lors de la vérification du token:', error);
+    return true;
+  }
+}
+
+async function fetchUsers() {
+  try {
+    // Récupère le token depuis le localStorage
+    const token = localStorage.getItem('token');
+
+    if (!token || isTokenExpired(token)) {
+      throw new Error('Token expiré ou non trouvé. Veuillez vous reconnecter.');
+    }
+
+    const response = await fetch('/admin/users', {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
     if (!response.ok) {
       throw new Error('Erreur lors de la récupération des données');
     }
+
     const users = await response.json();
     const usersDiv = document.getElementById('users');
     usersDiv.innerHTML = users.map(user => `
@@ -28,36 +46,23 @@ async function loadUsers() {
     `).join('');
   } catch (error) {
     console.error('Erreur:', error);
-    document.getElementById('users').innerHTML = '<p>Erreur lors du chargement des utilisateurs.</p>';
-  }
-}
-
-async function loadLogs() {
-  try {
-    const response = await fetch('/admin/logs');
-    if (!response.ok) {
-      throw new Error('Erreur lors de la récupération des journaux');
-    }
-    const logs = await response.json();
-    const logsDiv = document.getElementById('logs');
-    logsDiv.innerHTML = logs.map(log => `
-      <div>
-        <p>Utilisateur ID: ${log.utilisateur_id}</p>
-        <p>Action: ${log.action}</p>
-        <p>Date: ${new Date(log.date_action).toLocaleString()}</p>
-      </div>
-    `).join('');
-  } catch (error) {
-    console.error('Erreur:', error);
-    document.getElementById('logs').innerHTML = '<p>Erreur lors du chargement des journaux.</p>';
+    alert('Veuillez vous reconnecter.');
+    window.location.href = '/'; // Redirige vers la page de connexion
   }
 }
 
 async function updateUserRole(userId, newRole) {
   try {
+    const token = localStorage.getItem('token');
+
+    if (!token || isTokenExpired(token)) {
+      throw new Error('Token expiré ou non trouvé. Veuillez vous reconnecter.');
+    }
+
     const response = await fetch(`/admin/users/${userId}/role`, {
       method: 'PATCH',
       headers: {
+        'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ role: newRole }),
@@ -72,6 +77,10 @@ async function updateUserRole(userId, newRole) {
     alert('Rôle mis à jour avec succès!');
   } catch (error) {
     console.error('Erreur lors de la mise à jour du rôle:', error);
-    alert('Erreur lors de la mise à jour du rôle.');
+    alert('Erreur lors de la mise à jour du rôle. Veuillez vous reconnecter.');
+    window.location.href = '/'; // Redirige vers la page de connexion
   }
 }
+
+// Charger les utilisateurs au chargement de la page
+document.addEventListener('DOMContentLoaded', fetchUsers);
