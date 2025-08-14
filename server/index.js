@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session'); // Importation du module express-session
 const cors = require('cors');
 const path = require('path');
 const app = express();
@@ -9,6 +10,14 @@ app.use(cors({
   origin: 'http://localhost:3000',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+// Middleware pour les sessions
+app.use(session({
+  secret: 'votre_secret', // Remplacez par une clé secrète forte
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false } // Mettez à true si vous utilisez HTTPS
 }));
 
 // Middleware pour servir des fichiers statiques
@@ -39,6 +48,10 @@ app.use('/admin', adminRouter);
 // Importer les routes d'authentification
 const authRouter = require('./routes/auth');
 app.use('/auth', authRouter);
+
+// Importer les routes de l'organisateur
+const organisateurRouter = require('./routes/organisateur');
+app.use('/organisateur', organisateurRouter);
 
 // Démarrer le serveur
 app.listen(port, () => {

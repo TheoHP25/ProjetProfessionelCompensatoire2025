@@ -46,6 +46,25 @@ router.post('/connexion', async (req, res) => {
     console.error('Erreur lors de la connexion :', error);
     res.status(500).send('Erreur serveur');
   }
+  
+// Route pour la connexion 2
+router.post('/login', (req, res) => {
+  const { email, password } = req.body;
+
+  // Logique de vérification de l'utilisateur (exemple simplifié)
+  if (email && password) {
+    // Remplacez cette logique par une vérification réelle dans votre base de données
+    const user = { email, role: 'organisateur' }; // Exemple de rôle
+
+    // Stocke l'utilisateur dans la session
+    req.session.user = user;
+
+    return res.json({ success: true, role: user.role });
+  } else {
+    return res.status(401).json({ success: false, message: 'Email ou mot de passe incorrect' });
+  }
+});
+
 });
 
 module.exports = router;

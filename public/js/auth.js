@@ -17,8 +17,14 @@ async function login(email, password) {
     // Stocke le token dans le localStorage
     localStorage.setItem('token', data.token);
 
-    // Redirige l'utilisateur vers la page d'administration ou une autre page sécurisée
-    window.location.href = '/admin/dashboard';
+    // Redirige l'utilisateur en fonction de son rôle
+    if (data.role === 'admin') {
+      window.location.href = '/admin/dashboard';
+    } else if (data.role === 'organisateur') {
+      window.location.href = '/organisateur/dashboard';
+    } else {
+      window.location.href = '/'; // Redirige vers une page par défaut pour les autres rôles
+    }
   } catch (error) {
     console.error('Erreur:', error);
     alert('Erreur lors de la connexion.');

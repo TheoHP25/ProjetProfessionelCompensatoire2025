@@ -5,7 +5,10 @@ const authMiddleware = (roles = []) => {
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
 
+    console.log('Token reçu:', token); // Ajoute ce log pour vérifier le token reçu
+
     if (!token) {
+      console.log('Aucun token fourni dans les en-têtes');
       return res.status(401).send('Accès refusé. Aucun token fourni.');
     }
 
@@ -13,7 +16,6 @@ const authMiddleware = (roles = []) => {
       const decoded = jwt.verify(token, 'ton_secret');
       req.user = decoded;
 
-      // Vérifie si l'utilisateur a le rôle requis
       if (roles.length && !roles.includes(req.user.role)) {
         return res.status(403).send('Accès refusé. Rôle non autorisé.');
       }

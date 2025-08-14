@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de bord de l'Organisateur</title>
+</head>
+<body>
+    <h1>Tableau de bord de l'Organisateur</h1>
+    <form id="createEventForm">
+        <div>
+            <label for="titre">Titre:</label>
+            <input type="text" id="titre" name="titre" required>
+        </div>
+        <div>
+            <label for="description">Description:</label>
+            <textarea id="description" name="description"></textarea>
+        </div>
+        <div>
+            <label for="date">Date:</label>
+            <input type="datetime-local" id="date" name="date" required>
+        </div>
+        <div>
+            <label for="lieu">Lieu:</label>
+            <input type="text" id="lieu" name="lieu" required>
+        </div>
+        <button type="submit">Créer l'Événement</button>
+    </form>
+    <script src="/js/organisateur.js"></script>
+</body>
+</html>
