@@ -4,20 +4,15 @@ const cors = require('cors');
 const path = require('path');
 const app = express();
 const port = 3000;
+const sequelize = require('./config/database'); // Importe sequelize
+
+
 
 // Middleware pour CORS
 app.use(cors({
   origin: 'http://localhost:3000',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
-}));
-
-// Middleware pour les sessions
-app.use(session({
-  secret: 'votre_secret', // Remplacez par une clé secrète forte
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: false } // Mettez à true si vous utilisez HTTPS
 }));
 
 // Middleware pour servir des fichiers statiques
@@ -52,6 +47,12 @@ app.use('/auth', authRouter);
 // Importer les routes de l'organisateur
 const organisateurRouter = require('./routes/organisateur');
 app.use('/organisateur', organisateurRouter);
+
+// Importer les routes de l'étudiant
+const etudiantRouter = require('./routes/etudiant');
+app.use('/etudiant', etudiantRouter);
+
+
 
 // Démarrer le serveur
 app.listen(port, () => {

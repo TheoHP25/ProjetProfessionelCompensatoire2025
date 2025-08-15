@@ -11,3 +11,61 @@
 [14/08/2025 23:17:58] Utilisateur ID: 1 | Action: Modification du rôle | Détails: Rôle de l'utilisateur 1 modifié en etudiant
 [14/08/2025 23:21:36] Utilisateur ID: 1 | Action: Modification du rôle | Détails: Rôle de l'utilisateur 1 modifié en admin
 [14/08/2025 23:28:47] Utilisateur ID: 1 | Action: Modification du rôle | Détails: Rôle de l'utilisateur 1 modifié en organisateur
+[15/08/2025 06:25:06] Utilisateur ID: 1 | Action: Accès au tableau de bord organisateur | Détails: 
+[15/08/2025 06:25:20] Utilisateur ID: 1 | Action: Création d'un événement | Détails: [object Object]
+[15/08/2025 06:25:23] Utilisateur ID: 1 | Action: Accès au tableau de bord organisateur | Détails: 
+[15/08/2025 06:26:56] Utilisateur ID: Création de l'événement: | Action: [object Object] | Détails: 
+[15/08/2025 06:34:25] Utilisateur ID: 1 | Action: Accès au tableau de bord organisateur | Détails: 
+[15/08/2025 06:34:40] Utilisateur ID: 1 | Action: Modification du rôle | Détails: Rôle de l'utilisateur 3 modifié en etudiant
+[15/08/2025 06:34:46] Utilisateur ID: 1 | Action: Accès au tableau de bord organisateur | Détails: 
+[15/08/2025 06:34:54] Utilisateur ID: 1 | Action: Tentative de création d'un événement | Détails: [object Object]
+[15/08/2025 06:34:54] Utilisateur ID: 1 | Action: Événement créé avec succès | Détails: [object Object]
+[15/08/2025 06:34:56] Utilisateur ID: 1 | Action: Accès au tableau de bord organisateur | Détails: 
+[15/08/2025 06:36:01] Utilisateur ID: 1 | Action: Accès au tableau de bord organisateur | Détails: 
+[15/08/2025 06:40:31] Utilisateur ID: 1 | Action: Accès au tableau de bord étudiant | Détails: 
+[15/08/2025 06:43:19] Utilisateur ID: 1 | Action: Accès au tableau de bord étudiant | Détails: 
+[15/08/2025 06:43:19] Utilisateur ID: 1 | Action: Liste des événements demandée | Détails: 
+[15/08/2025 06:43:23] Utilisateur ID: 1 | Action: Inscription à l'événement 1 | Détails: [object Object]
+[15/08/2025 06:49:54] Utilisateur ID: 1 | Action: Accès au tableau de bord étudiant | Détails: 
+[15/08/2025 06:49:54] Utilisateur ID: 1 | Action: Liste des événements demandée | Détails: 
+[15/08/2025 06:50:18] Utilisateur ID: 1 | Action: Inscription à l'événement 1 | Détails: 
+[15/08/2025 06:53:57] Utilisateur ID: 1 | Action: Accès au tableau de bord étudiant | Détails: 
+[15/08/2025 06:53:57] Utilisateur ID: 1 | Action: Liste des événements demandée | Détails: 
+[15/08/2025 06:53:59] Utilisateur ID: 1 | Action: Inscription à l'événement 1 | Détails: 
+[15/08/2025 06:59:54] Utilisateur ID: 1 | Action: Accès au tableau de bord étudiant | Détails: 
+[15/08/2025 06:59:54] Utilisateur ID: 1 | Action: Liste des événements demandée | Détails: 
+[15/08/2025 06:59:55] Utilisateur ID: 1 | Action: Inscription à l'événement 1 | Détails: 
+[15/08/2025 07:04:37] Utilisateur ID: 1 | Action: Accès au tableau de bord étudiant | Détails: 
+[15/08/2025 07:04:37] Utilisateur ID: 1 | Action: Liste des événements demandée | Détails: 
+[15/08/2025 07:04:38] Utilisateur ID: 1 | Action: Inscription à l'événement 1 | Détails: 
+[15/08/2025 07:06:44] Utilisateur ID: 1 | Action: Accès au tableau de bord étudiant | Détails: 
+[15/08/2025 07:06:44] Utilisateur ID: 1 | Action: Liste des événements demandée | Détails: 
+[15/08/2025 07:06:46] Utilisateur ID: 1 | Action: Accès au tableau de bord étudiant | Détails: 
+[15/08/2025 07:06:46] Utilisateur ID: 1 | Action: Liste des événements demandée | Détails: 
+[15/08/2025 07:08:50] Utilisateur ID: 1 | Action: Accès au tableau de bord étudiant | Détails: 
+[15/08/2025 07:08:50] Utilisateur ID: 1 | Action: Liste des événements demandée | Détails: 
+[15/08/2025 07:09:18] Utilisateur ID: 1 | Action: Accès au tableau de bord étudiant | Détails: 
+[15/08/2025 07:09:18] Utilisateur ID: 1 | Action: Liste des événements demandée | Détails: 
+[15/08/2025 07:10:23] Utilisateur ID: 1 | Action: Inscription à l'événement 1 | Détails: 
+[15/08/2025 07:11:28] Utilisateur ID: 1 | Action: Accès au tableau de bord étudiant | Détails: 
+[15/08/2025 07:11:28] Utilisateur ID: 1 | Action: Liste des événements demandée | Détails: 
+[15/08/2025 07:11:29] Utilisateur ID: 1 | Action: Inscription à l'événement 1 | Détails: 
+[15/08/2025 07:16:30] Utilisateur ID: 1 | Action: Accès au tableau de bord étudiant | Détails: 
+[15/08/2025 07:16:30] Utilisateur ID: 1 | Action: Liste des événements demandée | Détails: 
+[15/08/2025 07:16:44] Utilisateur ID: 1 | Action: Accès au tableau de bord étudiant | Détails: 
+[15/08/2025 07:16:44] Utilisateur ID: 1 | Action: Liste des événements demandée | Détails: 
+[15/08/2025 07:16:45] Utilisateur ID: 1 | Action: Accès au tableau de bord étudiant | Détails: 
+[15/08/2025 07:16:45] Utilisateur ID: 1 | Action: Liste des événements demandée | Détails: 
+[15/08/2025 07:16:45] Utilisateur ID: 1 | Action: Accès au tableau de bord étudiant | Détails: 
+[15/08/2025 07:16:45] Utilisateur ID: 1 | Action: Liste des événements demandée | Détails: 
+[15/08/2025 07:16:45] Utilisateur ID: 1 | Action: Accès au tableau de bord étudiant | Détails: 
+[15/08/2025 07:16:45] Utilisateur ID: 1 | Action: Liste des événements demandée | Détails: 
+[15/08/2025 07:16:50] Utilisateur ID: 1 | Action: Accès au tableau de bord étudiant | Détails: 
+[15/08/2025 07:16:50] Utilisateur ID: 1 | Action: Liste des événements demandée | Détails: 
+[15/08/2025 07:16:51] Utilisateur ID: 1 | Action: Inscription à l'événement 1 | Détails: 
+[15/08/2025 07:18:43] Utilisateur ID: 1 | Action: Accès au tableau de bord étudiant | Détails: 
+[15/08/2025 07:18:43] Utilisateur ID: 1 | Action: Liste des événements demandée | Détails: 
+[15/08/2025 07:18:44] Utilisateur ID: 1 | Action: Inscription à l'événement 1 | Détails: 
+[15/08/2025 07:20:36] Utilisateur ID: 1 | Action: Accès au tableau de bord organisateur | Détails: 
+[15/08/2025 07:21:53] Utilisateur ID: 1 | Action: Accès au tableau de bord étudiant | Détails: 
+[15/08/2025 07:21:53] Utilisateur ID: 1 | Action: Liste des événements demandée | Détails: 
