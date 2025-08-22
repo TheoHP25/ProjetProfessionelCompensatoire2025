@@ -4,125 +4,189 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login/Inscription</title>
-        <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
+    <link href="/css/output.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bahnschrift:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
             margin: 0;
-            padding: 0;
-            background-color: #ffffff;
         }
-        .container {
-            margin-top: 60px;
+        body {
+            display: flex;
+            flex-direction: column;
+            background-color: #f0ecf4;
+            font-family: 'Bahnschrift', sans-serif;
         }
-        h1 {
-            color: #34444c;
+        .content {
+            flex: 1;
         }
-        .nav-links {
-            margin-top: 40px;
+        nav {
+            flex-shrink: 0;
+            background-color: #4b637b;
+            height: 70px;
+            display: flex;
+            align-items: center;
         }
-        .nav-links a {
-            display: list-item;
-            margin: 30px;
-            padding: 15px 5px;
+        nav .container {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        .custom-button {
             background-color: #4b637b;
             color: white;
+            padding: 0.75rem 1.5rem;
+            transition: background-color 0.5s ease;
+            border-radius: 0.375rem;
             text-decoration: none;
-            border-radius: 10px;
         }
-        .nav-links a:hover {
+        .custom-button:hover {
             background-color: #d44d3d;
+        }
+        footer {
+            flex-shrink: 0;
+            background-color: #4b637b;
+            color: white;
+            padding: 0.5rem;
+            text-align: center;
+        }
+        .welcome-text {
+            font-size: 2.5rem;
+            margin-top: -5rem;
+        }
+        .subtitle-text {
+            font-size: 1.5rem;
+            margin-top: 1rem;
         }
     </style>
 </head>
 <body>
-    <div>
-        <div>
-            <button type="button" id="login-toggle" onclick="showLoginForm()">Login</button>
-            <button type="button" id="register-toggle" onclick="showRegisterForm()">Inscription</button>
+    <nav>
+        <div class="container">
+            <h1 class="text-2xl font-bold text-white">JeanXXIII - Plateforme d'événements</h1>
+            <div></div>
         </div>
+    </nav>
+    <main class="content flex items-center justify-center p-4">
+        <div class="w-full max-w-md text-center">
+            <div class="flex justify-center my-8">
+                <button type="button" id="login-toggle" onclick="showLoginForm()" class="custom-button rounded-l">Login</button>
+                <button type="button" id="register-toggle" onclick="showRegisterForm()" class="custom-button rounded-r">Inscription</button>
+            </div>
 
-        <form id="login-form" onsubmit="event.preventDefault(); login();">
-            <input type="email" id="login-email" placeholder="Email" required>
-            <input type="password" id="login-password" placeholder="Mot de passe" required>
-            <button type="submit">Se connecter</button>
-        </form>
+            <form id="login-form" class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold mb-4 text-center">Connexion</h2>
+                <div class="mb-4">
+                    <label for="login-email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <input type="email" id="login-email" class="w-full p-2 border border-gray-300 rounded" placeholder="Email" required>
+                </div>
+                <div class="mb-4">
+                    <label for="login-password" class="block text-sm font-medium text-gray-700 mb-2">Mot de passe</label>
+                    <input type="password" id="login-password" class="w-full p-2 border border-gray-300 rounded" placeholder="Mot de passe" required>
+                </div>
+                <button type="submit" class="w-full custom-button bg-red-600 hover:bg-red-700 rounded">Se connecter</button>
+            </form>
 
-        <form id="register-form" style="display: none;" onsubmit="event.preventDefault(); register();">
-            <input type="text" id="register-name" placeholder="Nom" required>
-            <input type="email" id="register-email" placeholder="Email" required>
-            <input type="password" id="register-password" placeholder="Mot de passe" required>
-            <select id="register-role" required>
-                <option value="" disabled selected>Rôle</option>
-                <option value="admin">Admin</option>
-                <option value="organisateur">Organisateur</option>
-                <option value="etudiant">Étudiant</option>
-            </select>
-            <button type="submit">S'inscrire</button>
-        </form>
-    </div>
+            <form id="register-form" class="bg-white p-6 rounded-lg shadow-md hidden">
+                <h2 class="text-2xl font-bold mb-4 text-center">Inscription</h2>
+                <div class="mb-4">
+                    <label for="register-name" class="block text-sm font-medium text-gray-700 mb-2">Nom</label>
+                    <input type="text" id="register-name" class="w-full p-2 border border-gray-300 rounded" placeholder="Nom" required>
+                </div>
+                <div class="mb-4">
+                    <label for="register-email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <input type="email" id="register-email" class="w-full p-2 border border-gray-300 rounded" placeholder="Email" required>
+                </div>
+                <div class="mb-4">
+                    <label for="register-password" class="block text-sm font-medium text-gray-700 mb-2">Mot de passe</label>
+                    <input type="password" id="register-password" class="w-full p-2 border border-gray-300 rounded" placeholder="Mot de passe" required>
+                </div>
+                <div class="mb-4">
+                    <label for="register-role" class="block text-sm font-medium text-gray-700 mb-2">Rôle</label>
+                    <select id="register-role" class="w-full p-2 border border-gray-300 rounded" required>
+                        <option value="" disabled selected>Rôle</option>
+                        <option value="admin">Admin</option>
+                        <option value="organisateur">Organisateur</option>
+                        <option value="etudiant">Étudiant</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full custom-button bg-green-600 hover:bg-green-700 rounded">S'inscrire</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 JeanXXIII | MetzCampus. Tous droits réservés.</p>
+    </footer>
 
     <script>
         function showLoginForm() {
-            document.getElementById('login-form').style.display = 'block';
-            document.getElementById('register-form').style.display = 'none';
+            document.getElementById('login-form').classList.remove('hidden');
+            document.getElementById('register-form').classList.add('hidden');
         }
 
         function showRegisterForm() {
-            document.getElementById('login-form').style.display = 'none';
-            document.getElementById('register-form').style.display = 'block';
+            document.getElementById('login-form').classList.add('hidden');
+            document.getElementById('register-form').classList.remove('hidden');
         }
 
-        async function login() {
-          const email = document.getElementById('login-email').value;
-          const password = document.getElementById('login-password').value;
-        
-          const response = await fetch('/auth/connexion', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email, mot_de_passe: password }),
-          });
-      
-          const data = await response.json();
-          if (response.ok) {
-            // Stocker le token dans le localStorage
-            localStorage.setItem('token', data.token);
-            // Rediriger vers la page d'accueil
-            window.location.href = '/accueil';
-          } else {
-            alert('Erreur de connexion: ' + data.message);
-          }
-        }
-        
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
 
+            fetch('/auth/connexion', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, mot_de_passe: password }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.token) {
+                    localStorage.setItem('token', data.token);
+                    window.location.href = '/accueil';
+                } else {
+                    alert('Erreur de connexion: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Erreur:', error);
+                alert('Erreur lors de la connexion.');
+            });
+        });
 
-
-        async function register() {
+        document.getElementById('register-form').addEventListener('submit', function(event) {
+            event.preventDefault();
             const name = document.getElementById('register-name').value;
             const email = document.getElementById('register-email').value;
             const password = document.getElementById('register-password').value;
             const role = document.getElementById('register-role').value;
 
-            const response = await fetch('/auth/inscription', {
+            fetch('/auth/inscription', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ nom: name, email, mot_de_passe: password, role }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.id) {
+                    alert('Inscription réussie!');
+                    showLoginForm();
+                } else {
+                    alert('Erreur d\'inscription: ' + (data.message || 'Erreur inconnue'));
+                }
+            })
+            .catch(error => {
+                console.error('Erreur:', error);
+                alert('Erreur lors de l\'inscription.');
             });
-
-            const data = await response.json();
-            if (response.ok) {
-                alert('Inscription réussie!');
-                showLoginForm(); // Rediriger vers le formulaire de login après inscription
-            } else {
-                alert('Erreur d\'inscription: ' + (data.message || 'Erreur inconnue'));
-            }
-        }
+        });
     </script>
 </body>
 </html>
-
-

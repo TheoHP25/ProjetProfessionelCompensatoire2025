@@ -52,7 +52,11 @@ app.use('/organisateur', organisateurRouter);
 const etudiantRouter = require('./routes/etudiant');
 app.use('/etudiant', etudiantRouter);
 
-
+// Synchronisation des modèles avec la base de données
+sequelize.sync({ alter: true })
+  .then(() => {
+    console.log('Les modèles ont été synchronisés avec la base de données.');
+  });
 
 // Démarrer le serveur
 app.listen(port, () => {

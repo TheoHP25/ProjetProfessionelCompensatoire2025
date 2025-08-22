@@ -6,10 +6,10 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
       allowNull: false
     },
-    etudiant_id: {
-      type: DataTypes.INTEGER,
+    etudiant_mail: {  // Changement du nom de la colonne et du type
+      type: DataTypes.STRING,  // Utilisation de STRING pour les emails
       allowNull: false,
-      field: 'etudiant_id'
+      field: 'etudiant_mail'
     },
     evenement_id: {
       type: DataTypes.INTEGER,
