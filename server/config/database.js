@@ -5,7 +5,7 @@ const sequelize = new Sequelize(
   'utilisateur',
   'pass',
   {
-    host: 'localhost',  // Utilise 'localhost' comme hôte
+    host: 'localhost',  
     dialect: 'mysql',
     logging: false
   }

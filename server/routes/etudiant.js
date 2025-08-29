@@ -26,7 +26,7 @@ router.get('/events', async (req, res) => {
 
 // Route pour s'inscrire à un événement
 router.post('/events/:id/register', async (req, res) => {
-  const userEmail = req.body.email; // L'email de l'utilisateur est envoyé depuis le frontend
+  const userEmail = req.body.email; // L'email de l'utilisateur est envoyé depuis le front
   const eventId = req.params.id;
 
   if (!userEmail) {

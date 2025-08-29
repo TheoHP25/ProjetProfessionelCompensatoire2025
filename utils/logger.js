@@ -4,7 +4,7 @@ const path = require('path');
 // Chemin vers le dossier des logs
 const logsDirectory = path.join(__dirname, '../logs');
 
-// Assure-toi que le dossier des logs existe
+// vérifier que le dossier des logs existe
 if (!fs.existsSync(logsDirectory)) {
   fs.mkdirSync(logsDirectory);
 }

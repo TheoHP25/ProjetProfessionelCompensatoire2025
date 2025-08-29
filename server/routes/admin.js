@@ -34,7 +34,7 @@ router.patch('/users/:id/role', async (req, res) => {
     if (updated) {
       const updatedUser = await Utilisateur.findByPk(req.params.id);
 
-      // Assure-toi que req.user est défini et contient l'ID de l'utilisateur
+      
       if (req.user && req.user.id) {
         logAction(req.user.id, 'Modification du rôle', `Rôle de l'utilisateur ${req.params.id} modifié en ${role}`);
       } else {

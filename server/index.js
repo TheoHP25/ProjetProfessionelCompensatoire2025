@@ -1,14 +1,14 @@
 const express = require('express');
-const session = require('express-session'); // Importation du module express-session
+const session = require('express-session'); 
 const cors = require('cors');
 const path = require('path');
 const app = express();
 const port = 3000;
-const sequelize = require('./config/database'); // Importe sequelize
+const sequelize = require('./config/database'); 
 
 
 
-// Middleware pour CORS
+// Middleware - CORS
 app.use(cors({
   origin: 'http://localhost:3000',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
@@ -52,7 +52,7 @@ app.use('/organisateur', organisateurRouter);
 const etudiantRouter = require('./routes/etudiant');
 app.use('/etudiant', etudiantRouter);
 
-// Synchronisation des modèles avec la base de données
+// Synchronisation modèles/base de données
 sequelize.sync({ alter: true })
   .then(() => {
     console.log('Les modèles ont été synchronisés avec la base de données.');

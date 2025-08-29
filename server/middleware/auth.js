@@ -5,7 +5,7 @@ const authMiddleware = (roles = []) => {
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
 
-    console.log('Token reçu:', token); // Ajoute ce log pour vérifier le token reçu
+    console.log('Token reçu:', token); // log pour vérifier le token reçu
 
     if (!token) {
       console.log('Aucun token fourni dans les en-têtes');

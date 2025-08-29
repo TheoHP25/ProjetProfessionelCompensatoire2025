@@ -51,12 +51,12 @@ router.post('/connexion', async (req, res) => {
 router.post('/login', (req, res) => {
   const { email, password } = req.body;
 
-  // Logique de vérification de l'utilisateur (exemple simplifié)
+  
   if (email && password) {
-    // Remplacez cette logique par une vérification réelle dans votre base de données
-    const user = { email, role: 'organisateur' }; // Exemple de rôle
+    
+    const user = { email, role: 'organisateur' }; 
 
-    // Stocke l'utilisateur dans la session
+    
     req.session.user = user;
 
     return res.json({ success: true, role: user.role });

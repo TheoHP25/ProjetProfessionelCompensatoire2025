@@ -14,7 +14,7 @@ router.get('/dashboard', (req, res) => {
 
 // Créer un événement
 router.post('/events', async (req, res) => {
-  const userId = 1; // Remplace par l'ID de l'utilisateur connecté (ex: req.session.user.id)
+  const userId = 1; // dans l'idéal remplacer par l'id réel
   logAction(userId, 'Tentative de création d\'un événement', req.body);
 
   try {
